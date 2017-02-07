@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="panel">
+    <div class="panel-body">
+      <div ng-if="messages.error" role="alert" class="alert alert-danger">
+        <div ng-repeat="error in messages.error">{{error.msg}}</div>
+      </div>
+      <div ng-if="messages.success" role="alert" class="alert alert-success">
+        <div ng-repeat="success in messages.success">{{success.msg}}</div>
+      </div>
+      <p>订单信息: 8357440</p>
+      <p>收件人：***</p>
+      <p>手机号：***</p>
+      <p>订单状态：未发货</p>
+    </div>
+  </div>
+
+</div>

@@ -66,6 +66,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         controller: 'CartCtrl',
         resolve: { loginRequired: loginRequired }
       })
+      .when('/order/:id', {
+        templateUrl: 'partials/order.html',
+        controller: 'OrderCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });
@@ -225,6 +230,11 @@ angular.module('MyApp')
         });
     };
   }]);
+angular.module('MyApp')
+  .controller('OrderCtrl', ["$scope", "Items", function($scope, Items) {
+    $scope.items = Items.all();
+  }])
+;
 angular.module('MyApp')
   .controller('OrderListCtrl', ["$scope", function($scope) {
 
