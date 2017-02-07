@@ -48,6 +48,16 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         templateUrl: 'partials/item.html',
         controller: 'ItemModifyCtrl'
       })
+      .when('/wishlist', {
+        templateUrl: 'partials/wishList.html',
+        controller: 'WishListCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
+      .when('/orderlist', {
+        templateUrl: 'partials/orderList.html',
+        controller: 'OrderListCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });

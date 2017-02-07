@@ -50,6 +50,16 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         templateUrl: 'partials/item.html',
         controller: 'ItemModifyCtrl'
       })
+      .when('/wishlist', {
+        templateUrl: 'partials/wishList.html',
+        controller: 'WishListCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
+      .when('/orderlist', {
+        templateUrl: 'partials/orderList.html',
+        controller: 'OrderListCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });
@@ -205,6 +215,10 @@ angular.module('MyApp')
     };
   }]);
 angular.module('MyApp')
+  .controller('OrderListCtrl', ["$scope", function($scope) {
+
+  }]);
+angular.module('MyApp')
   .controller('ProfileCtrl', ["$scope", "$rootScope", "$location", "$window", "$auth", "Account", function($scope, $rootScope, $location, $window, $auth, Account) {
     $scope.profile = $rootScope.currentUser;
 
@@ -333,6 +347,10 @@ angular.module('MyApp')
           }
         });
     };
+  }]);
+angular.module('MyApp')
+  .controller('WishListCtrl', ["$scope", function($scope) {
+
   }]);
 angular.module('MyApp')
   .factory('Account', ["$http", function($http) {
