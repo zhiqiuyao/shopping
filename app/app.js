@@ -59,6 +59,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         controller: 'OrderListCtrl',
         resolve: { loginRequired: loginRequired }
       })
+      .when('/cart', {
+        templateUrl: 'partials/cart.html',
+        controller: 'CartCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });

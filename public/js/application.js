@@ -61,6 +61,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         controller: 'OrderListCtrl',
         resolve: { loginRequired: loginRequired }
       })
+      .when('/cart', {
+        templateUrl: 'partials/cart.html',
+        controller: 'CartCtrl',
+        resolve: { loginRequired: loginRequired }
+      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });
@@ -86,6 +91,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
     }
   }]);
 
+angular.module('MyApp')
+  .controller('CartCtrl', ["$scope", "Items", function($scope, Items) {
+    $scope.items = Items.all();
+  }])
+;
 angular.module('MyApp')
   .controller('ContactCtrl', ["$scope", "Contact", function($scope, Contact) {
     $scope.sendContactForm = function() {
