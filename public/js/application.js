@@ -6,7 +6,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
 
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/home.html'
+        templateUrl: 'partials/home.html',
+        controller: 'HomeCtrl'
       })
       .when('/contact', {
         templateUrl: 'partials/contact.html',
@@ -137,9 +138,15 @@ angular.module('MyApp')
   }]);
 
 angular.module('MyApp')
-  .controller('ItemCreateCtrl', ["$scope", function($scope) {
+  .controller('HomeCtrl', ["$scope", "Items", function($scope, Items) {
+    $scope.items = Items.all();
+  }]);
+angular.module('MyApp')
+  .controller('ItemCreateCtrl', ["$scope", "Items", function($scope, Items) {
     $scope.submitItem = function () {
       console.log($scope.item);
+      Items.push($scope.item);
+
       /*
       Item.createItem($scope.item)
         .then(function(response) {
@@ -168,14 +175,8 @@ angular.module('MyApp')
   }])
 ;
 angular.module('MyApp')
-  .controller('ItemsCtrl', ["$scope", function($scope) {
-    $scope.items = [
-      {name: "aaaa", price: '10'},
-      {name: "bbbb", price: '10'},
-      {name: "cccc", price: '10'},
-      {name: "dddd", price: '10'},
-      {name: "eeee", price: '10'}
-    ]
+  .controller('ItemsCtrl', ["$scope", "Items", function($scope, Items) {
+    $scope.items = Items.all();
   }])
 ;
 angular.module('MyApp')
@@ -380,3 +381,21 @@ angular.module('MyApp')
       }
     };
   }]);
+angular.module('MyApp')
+  .factory('Items', function() {
+    var allItems = [
+      {name: "aaaa", price: '10', content: '这是一条商品信息'},
+      {name: "bbbb", price: '20', content: '这是一条商品信息'},
+      {name: "cccc", price: '30', content: '这是一条商品信息'},
+      {name: "dddd", price: '40', content: '这是一条商品信息'},
+      {name: "eeee", price: '50', content: '这是一条商品信息'}
+    ];
+    return {
+      all: function () {
+        return  allItems;
+      },
+      push: function (data) {
+        return allItems.push(data);
+      }
+    };
+  });

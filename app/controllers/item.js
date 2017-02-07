@@ -1,7 +1,9 @@
 angular.module('MyApp')
-  .controller('ItemCreateCtrl', function($scope) {
+  .controller('ItemCreateCtrl', function($scope, Items) {
     $scope.submitItem = function () {
       console.log($scope.item);
+      Items.push($scope.item);
+
       /*
       Item.createItem($scope.item)
         .then(function(response) {
