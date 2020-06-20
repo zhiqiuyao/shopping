@@ -1,0 +1,56 @@
+			.title-bg {
+				background-image: url(../img/successbg.png);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				height: 4.32rem;
+				width: 100%;
+			}
+			
+
+			.view-body {
+				position: relative;
+			}
+
+			.form-view {
+				position: absolute;
+				top: 3rem;
+				margin-left: .3rem;
+				/* margin-right: auto; */
+			}
+
+			.view-logo {
+				text-align: left;
+			}
+			.view-logo img {
+				height: .8rem;
+				width: 2rem;
+				margin-top: .2rem
+			}
+			.icon-view{
+				text-align: center;
+			}
+			.icon-view img{
+				width: 1.28rem;
+				height: 1.28rem;
+				margin-top: .25rem;
+			}
+			.icon-view div{
+				color: #000000;
+				font-weight: bold;
+				font-size:.32rem;
+				padding-bottom:.3rem ;
+				margin-top: .3rem;
+				border-bottom: 1px solid #B9B9B9;
+			}
+			.view-details div:nth-child(1){
+				color: #000000;
+				font-weight: bold;
+				font-size:.32rem;
+				margin-bottom: .2rem;
+				margin-top: .3rem;
+			}
+			.view-details div:nth-child(2),.view-details div:nth-child(3),.view-details div:nth-child(4) div:nth-child(5) div:nth-child(6){
+				color: #222;
+				margin-bottom: .2rem;
+				font-size:.28rem;
+			}
